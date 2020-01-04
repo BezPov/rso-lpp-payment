@@ -73,5 +73,6 @@ server.listen(8080, () => {
     db.once('open', () => {
          console.log("Connection to mongodb established successfully");
          require('./api/accounts')(server);
+         require('./api/transactions')(server);
     });
 });
