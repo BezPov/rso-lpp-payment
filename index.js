@@ -44,7 +44,7 @@ server.get('/', (req, res, next) => {
     return next();
 });
 
-server.listen(8082, () => {
+server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);
 
     // establish connection to mongodb atlas
