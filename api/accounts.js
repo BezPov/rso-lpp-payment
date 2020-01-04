@@ -57,7 +57,7 @@ module.exports = function(server) {
 
 		CreditAccount.findOne({user: req.params.userId})
 			.then(account => {
-				if (!user) res.send(404, {'message': `User's ${req.params.userId} credit account was not found.`});
+				if (!account) res.send(404, {'message': `User's ${req.params.userId} credit account was not found.`});
 				else res.send(200, account);
 				next();
 			})
