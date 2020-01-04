@@ -12,7 +12,7 @@ module.exports = function(server) {
 		const data = req.body || {};
 
 		// validate data
-		if (!data.creditAccount || !data.price) {
+		if (!data.creditAccount || !data.price || !data.type) {
 			res.send(500, { 'message': 'Unable to perform new transaction. Missing required data.' });
 		} else {
 
@@ -22,16 +22,18 @@ module.exports = function(server) {
 				else {
 					const currentState = account.value;
 
-					if (currentState === 0 || currentState < data.price) {
+					if (data.type === 'pull' && (currentState === 0 || currentState < data.price)) {
 						res.send(500, {'message': 'Transaction failed! The amount of money on the account is insufficient.'});
 					} else {
-						let newState = currentState - data.price;
+
+						let newState = (data.type === 'pull') ? (currentState - data.price) : (currentState + data.price);
 
 						const transactionObj = {
 							creditAccount: account._id,
 							oldState: currentState,
 							newState: newState,
 							transactionAmount: data.price,
+							transactionType: data.type,
 							createdAt: new Date(),
 							lastUpdatedAt: new Date()
 						};
