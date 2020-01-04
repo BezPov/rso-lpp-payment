@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TransactionSchema = new mongoose.Schema({
-	credit: {
+	creditAccount: {
 		type: mongoose.Schema.ObjectId,
 		required: true
 	},
@@ -10,6 +10,10 @@ const TransactionSchema = new mongoose.Schema({
 		required: true
 	},
 	newState: {
+		type: Number,
+		required: true
+	},
+	transactionAmount: {
 		type: Number,
 		required: true
 	},
