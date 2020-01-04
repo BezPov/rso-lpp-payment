@@ -1,6 +1,6 @@
 {
   "name": "lpp-payment",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-etcd": "^7.0.0",
     "nodemon": "^1.19.4",
-    "restify": "^8.4.0"
+    "restify": "^8.4.0",
+    "winston": "^2.4.1",
+    "winston-logstash": "^0.4.0"
   }
 }
