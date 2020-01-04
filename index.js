@@ -44,7 +44,7 @@ server.get('/', (req, res, next) => {
     res.json({
         name: 'lpp-payment',
         version: process.env.npm_package_version,
-        description: 'Api gateway'
+        description: 'Handles the payments'
     });
 
     return next();
