@@ -13,7 +13,7 @@ spec:
         app: lpp-payment
     spec:
       containers:
-        - image: bezpov/lpp-payment:1.0.8
+        - image: bezpov/lpp-payment:1.0.9
           name: lpp-payment-container
           ports:
             - containerPort: 8080

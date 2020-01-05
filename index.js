@@ -38,6 +38,9 @@ require('./routes/healthRoutes')(server);
 require('./routes/metricsRoutes')(server);
 require('./routes/etcdRoutes')(server);
 
+require('./api/accounts')(server);
+require('./api/transactions')(server);
+
 server.listen(8080, () => {
     console.log(`${server.name} listening at ${server.url}`);
 
@@ -45,9 +48,6 @@ server.listen(8080, () => {
 
     const onDatabaseConnected = function() {
         logger.info(`[${process.env.npm_package_name}] Database connected`);
-
-        require('./api/accounts')(server);
-        require('./api/transactions')(server);
     };
 
     const onDatabaseError = function() {
